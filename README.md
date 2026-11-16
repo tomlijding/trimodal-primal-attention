@@ -112,7 +112,7 @@ experiments/triparity/   Table 1 and the parity check
 experiments/scaling/     FLOP count and memory measurement
 experiments/mosei/       MMSA patch, run and report scripts for Table 2
 results/                 raw outputs behind the numbers in the paper
-images/                  the figure above and the script that draws it
+images/                  the figure above
 ```
 
 ## Licence
