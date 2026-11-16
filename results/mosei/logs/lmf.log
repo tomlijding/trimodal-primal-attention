@@ -1,0 +1,219 @@
+MMSA - ======================================== Program Start ========================================
+MMSA - Running with args:
+MMSA - {'model_name': 'lmf', 'dataset_name': 'mosei', 'featurePath': '<DATA>/MOSEI/Processed/unaligned_50.pkl', 'seq_lens': [50, 500, 375], 'feature_dims': [768, 74, 35], 'train_samples': 16326, 'num_classes': 3, 'language': 'en', 'KeyEval': 'Loss', 'missing_rate': [0.2, 0.2, 0.2], 'missing_seed': [1111, 1111, 1111], 'need_data_aligned': False, 'need_model_aligned': False, 'need_normalized': True, 'early_stop': 8, 'hidden_dims': [128, 16, 128], 'dropouts': [0.2, 0.2, 0.2, 0.2], 'rank': 4, 'batch_size': 32, 'learning_rate': 0.001, 'factor_lr': 0.001, 'weight_decay': 0.001, 'model_save_path': PosixPath('<MMSA>/runs/saved_models/lmf_1111_1112_1113_1114_1115/lmf-mosei.pth'), 'device': device(type='cuda', index=0), 'train_mode': 'regression', 'custom_feature': None, 'feature_T': None, 'feature_A': None, 'feature_V': None}
+MMSA - Seeds: [1111, 1112, 1113, 1114, 1115]
+MMSA - ------------------------------ Running with seed 1111 [1/5] ------------------------------
+MMSA - train samples: (16326,)
+MMSA - valid samples: (1871,)
+MMSA - test samples: (4659,)
+MMSA - The model has 508475 trainable parameters
+[run_baseline] lmf on mosei: <DATA>/MOSEI/Processed/unaligned_50.pkl  use_bert=None use_finetune=None
+MMSA - TRAIN-(lmf) [1/1/1] >> loss: 0.6634  Has0_acc_2: 0.7752  Has0_F1_score: 0.7795  Non0_acc_2: 0.7992  Non0_F1_score: 0.7973  Mult_acc_5: 0.4799  Mult_acc_7: 0.4720  MAE: 0.6639  Corr: 0.6084
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7301  Has0_F1_score: 0.7450  Non0_acc_2: 0.7990  Non0_F1_score: 0.8031  Mult_acc_5: 0.5077  Mult_acc_7: 0.4976  MAE: 0.6126  Corr: 0.6506  Loss: 0.6157
+MMSA - TRAIN-(lmf) [1/2/1] >> loss: 0.6069  Has0_acc_2: 0.7965  Has0_F1_score: 0.8009  Non0_acc_2: 0.8258  Non0_F1_score: 0.8248  Mult_acc_5: 0.5127  Mult_acc_7: 0.5006  MAE: 0.6069  Corr: 0.6836
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8183  Has0_F1_score: 0.8188  Non0_acc_2: 0.8241  Non0_F1_score: 0.8203  Mult_acc_5: 0.5200  Mult_acc_7: 0.5136  MAE: 0.5736  Corr: 0.6780  Loss: 0.5733
+MMSA - TRAIN-(lmf) [1/3/1] >> loss: 0.581  Has0_acc_2: 0.8015  Has0_F1_score: 0.8064  Non0_acc_2: 0.8350  Non0_F1_score: 0.8344  Mult_acc_5: 0.5328  Mult_acc_7: 0.5184  MAE: 0.5811  Corr: 0.7123
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7969  Has0_F1_score: 0.8048  Non0_acc_2: 0.8387  Non0_F1_score: 0.8394  Mult_acc_5: 0.5484  Mult_acc_7: 0.5382  MAE: 0.5442  Corr: 0.7021  Loss: 0.5448
+MMSA - TRAIN-(lmf) [1/4/1] >> loss: 0.5625  Has0_acc_2: 0.8111  Has0_F1_score: 0.8157  Non0_acc_2: 0.8453  Non0_F1_score: 0.8448  Mult_acc_5: 0.5453  Mult_acc_7: 0.5292  MAE: 0.5628  Corr: 0.7312
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7921  Has0_F1_score: 0.8002  Non0_acc_2: 0.8373  Non0_F1_score: 0.8379  Mult_acc_5: 0.5387  Mult_acc_7: 0.5281  MAE: 0.5400  Corr: 0.7135  Loss: 0.5402
+MMSA - TRAIN-(lmf) [1/5/1] >> loss: 0.5481  Has0_acc_2: 0.8129  Has0_F1_score: 0.8175  Non0_acc_2: 0.8510  Non0_F1_score: 0.8504  Mult_acc_5: 0.5578  Mult_acc_7: 0.5400  MAE: 0.5479  Corr: 0.7440
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8156  Has0_F1_score: 0.8196  Non0_acc_2: 0.8373  Non0_F1_score: 0.8361  Mult_acc_5: 0.5339  Mult_acc_7: 0.5190  MAE: 0.5637  Corr: 0.7036  Loss: 0.5629
+MMSA - TRAIN-(lmf) [2/6/1] >> loss: 0.5365  Has0_acc_2: 0.8159  Has0_F1_score: 0.8206  Non0_acc_2: 0.8544  Non0_F1_score: 0.8540  Mult_acc_5: 0.5682  Mult_acc_7: 0.5496  MAE: 0.5368  Corr: 0.7565
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8135  Has0_F1_score: 0.8163  Non0_acc_2: 0.8324  Non0_F1_score: 0.8300  Mult_acc_5: 0.5355  Mult_acc_7: 0.5216  MAE: 0.5620  Corr: 0.7131  Loss: 0.5609
+MMSA - TRAIN-(lmf) [3/7/1] >> loss: 0.5311  Has0_acc_2: 0.8212  Has0_F1_score: 0.8256  Non0_acc_2: 0.8594  Non0_F1_score: 0.8589  Mult_acc_5: 0.5682  Mult_acc_7: 0.5499  MAE: 0.5313  Corr: 0.7612
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8151  Has0_F1_score: 0.8201  Non0_acc_2: 0.8442  Non0_F1_score: 0.8436  Mult_acc_5: 0.5339  Mult_acc_7: 0.5254  MAE: 0.5381  Corr: 0.7196  Loss: 0.5373
+MMSA - TRAIN-(lmf) [1/8/1] >> loss: 0.5211  Has0_acc_2: 0.8222  Has0_F1_score: 0.8266  Non0_acc_2: 0.8620  Non0_F1_score: 0.8614  Mult_acc_5: 0.5788  Mult_acc_7: 0.5592  MAE: 0.5213  Corr: 0.7696
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8188  Has0_F1_score: 0.8221  Non0_acc_2: 0.8366  Non0_F1_score: 0.8350  Mult_acc_5: 0.5452  Mult_acc_7: 0.5318  MAE: 0.5553  Corr: 0.7061  Loss: 0.5560
+MMSA - TRAIN-(lmf) [2/9/1] >> loss: 0.5162  Has0_acc_2: 0.8225  Has0_F1_score: 0.8269  Non0_acc_2: 0.8639  Non0_F1_score: 0.8634  Mult_acc_5: 0.5820  Mult_acc_7: 0.5617  MAE: 0.5162  Corr: 0.7736
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8119  Has0_F1_score: 0.8139  Non0_acc_2: 0.8303  Non0_F1_score: 0.8271  Mult_acc_5: 0.5462  Mult_acc_7: 0.5350  MAE: 0.5526  Corr: 0.7097  Loss: 0.5531
+MMSA - TRAIN-(lmf) [3/10/1] >> loss: 0.506  Has0_acc_2: 0.8237  Has0_F1_score: 0.8281  Non0_acc_2: 0.8645  Non0_F1_score: 0.8640  Mult_acc_5: 0.5907  Mult_acc_7: 0.5698  MAE: 0.5060  Corr: 0.7814
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7953  Has0_F1_score: 0.8008  Non0_acc_2: 0.8317  Non0_F1_score: 0.8302  Mult_acc_5: 0.5468  Mult_acc_7: 0.5371  MAE: 0.5381  Corr: 0.7118  Loss: 0.5369
+MMSA - TRAIN-(lmf) [1/11/1] >> loss: 0.4971  Has0_acc_2: 0.8293  Has0_F1_score: 0.8333  Non0_acc_2: 0.8713  Non0_F1_score: 0.8706  Mult_acc_5: 0.5981  Mult_acc_7: 0.5770  MAE: 0.4971  Corr: 0.7905
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8044  Has0_F1_score: 0.8077  Non0_acc_2: 0.8317  Non0_F1_score: 0.8288  Mult_acc_5: 0.5505  Mult_acc_7: 0.5398  MAE: 0.5421  Corr: 0.7120  Loss: 0.5404
+MMSA - TRAIN-(lmf) [2/12/1] >> loss: 0.4949  Has0_acc_2: 0.8272  Has0_F1_score: 0.8317  Non0_acc_2: 0.8713  Non0_F1_score: 0.8709  Mult_acc_5: 0.6007  Mult_acc_7: 0.5783  MAE: 0.4947  Corr: 0.7933
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7964  Has0_F1_score: 0.8034  Non0_acc_2: 0.8310  Non0_F1_score: 0.8313  Mult_acc_5: 0.5521  Mult_acc_7: 0.5361  MAE: 0.5683  Corr: 0.7104  Loss: 0.5683
+MMSA - TRAIN-(lmf) [3/13/1] >> loss: 0.4887  Has0_acc_2: 0.8295  Has0_F1_score: 0.8337  Non0_acc_2: 0.8735  Non0_F1_score: 0.8730  Mult_acc_5: 0.6075  Mult_acc_7: 0.5854  MAE: 0.4882  Corr: 0.7981
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8172  Has0_F1_score: 0.8206  Non0_acc_2: 0.8373  Non0_F1_score: 0.8356  Mult_acc_5: 0.5339  Mult_acc_7: 0.5195  MAE: 0.5626  Corr: 0.7104  Loss: 0.5622
+MMSA - TRAIN-(lmf) [4/14/1] >> loss: 0.4791  Has0_acc_2: 0.8308  Has0_F1_score: 0.8352  Non0_acc_2: 0.8768  Non0_F1_score: 0.8764  Mult_acc_5: 0.6106  Mult_acc_7: 0.5890  MAE: 0.4792  Corr: 0.8048
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7680  Has0_F1_score: 0.7791  Non0_acc_2: 0.8227  Non0_F1_score: 0.8248  Mult_acc_5: 0.5345  Mult_acc_7: 0.5232  MAE: 0.5556  Corr: 0.6949  Loss: 0.5547
+MMSA - TRAIN-(lmf) [5/15/1] >> loss: 0.4749  Has0_acc_2: 0.8351  Has0_F1_score: 0.8392  Non0_acc_2: 0.8809  Non0_F1_score: 0.8803  Mult_acc_5: 0.6142  Mult_acc_7: 0.5916  MAE: 0.4736  Corr: 0.8093
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7926  Has0_F1_score: 0.8005  Non0_acc_2: 0.8352  Non0_F1_score: 0.8357  Mult_acc_5: 0.5505  Mult_acc_7: 0.5382  MAE: 0.5546  Corr: 0.7019  Loss: 0.5553
+MMSA - TRAIN-(lmf) [6/16/1] >> loss: 0.4673  Has0_acc_2: 0.8365  Has0_F1_score: 0.8405  Non0_acc_2: 0.8828  Non0_F1_score: 0.8822  Mult_acc_5: 0.6203  Mult_acc_7: 0.5982  MAE: 0.4675  Corr: 0.8135
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8215  Has0_F1_score: 0.8229  Non0_acc_2: 0.8345  Non0_F1_score: 0.8313  Mult_acc_5: 0.5494  Mult_acc_7: 0.5339  MAE: 0.5537  Corr: 0.7044  Loss: 0.5520
+MMSA - TRAIN-(lmf) [7/17/1] >> loss: 0.461  Has0_acc_2: 0.8387  Has0_F1_score: 0.8427  Non0_acc_2: 0.8861  Non0_F1_score: 0.8856  Mult_acc_5: 0.6220  Mult_acc_7: 0.6003  MAE: 0.4611  Corr: 0.8180
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7606  Has0_F1_score: 0.7713  Non0_acc_2: 0.8143  Non0_F1_score: 0.8157  Mult_acc_5: 0.5452  Mult_acc_7: 0.5339  MAE: 0.5565  Corr: 0.6998  Loss: 0.5556
+MMSA - TRAIN-(lmf) [8/18/1] >> loss: 0.4611  Has0_acc_2: 0.8357  Has0_F1_score: 0.8397  Non0_acc_2: 0.8828  Non0_F1_score: 0.8822  Mult_acc_5: 0.6246  Mult_acc_7: 0.6009  MAE: 0.4607  Corr: 0.8185
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7734  Has0_F1_score: 0.7828  Non0_acc_2: 0.8248  Non0_F1_score: 0.8254  Mult_acc_5: 0.5313  Mult_acc_7: 0.5179  MAE: 0.5554  Corr: 0.7060  Loss: 0.5533
+MMSA - TEST-(lmf) >>  Has0_acc_2: 0.7995  Has0_F1_score: 0.8033  Non0_acc_2: 0.8365  Non0_F1_score: 0.8345  Mult_acc_5: 0.5437  Mult_acc_7: 0.5284  MAE: 0.5631  Corr: 0.7299  Loss: 0.5631
+MMSA - Result for seed 1111: {'Has0_acc_2': 0.7995, 'Has0_F1_score': 0.8033, 'Non0_acc_2': 0.8365, 'Non0_F1_score': 0.8345, 'Mult_acc_5': 0.5437, 'Mult_acc_7': 0.5284, 'MAE': 0.5631, 'Corr': 0.7299, 'Loss': 0.5631}
+MMSA - ------------------------------ Running with seed 1112 [2/5] ------------------------------
+MMSA - train samples: (16326,)
+MMSA - valid samples: (1871,)
+MMSA - test samples: (4659,)
+MMSA - The model has 508475 trainable parameters
+MMSA - TRAIN-(lmf) [1/1/2] >> loss: 0.6694  Has0_acc_2: 0.7802  Has0_F1_score: 0.7841  Non0_acc_2: 0.7993  Non0_F1_score: 0.7974  Mult_acc_5: 0.4689  Mult_acc_7: 0.4615  MAE: 0.6691  Corr: 0.5985
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8140  Has0_F1_score: 0.8063  Non0_acc_2: 0.7997  Non0_F1_score: 0.7879  Mult_acc_5: 0.4923  Mult_acc_7: 0.4832  MAE: 0.6104  Corr: 0.6676  Loss: 0.6092
+MMSA - TRAIN-(lmf) [1/2/2] >> loss: 0.6074  Has0_acc_2: 0.8018  Has0_F1_score: 0.8055  Non0_acc_2: 0.8256  Non0_F1_score: 0.8243  Mult_acc_5: 0.5120  Mult_acc_7: 0.4995  MAE: 0.6077  Corr: 0.6806
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8183  Has0_F1_score: 0.8194  Non0_acc_2: 0.8282  Non0_F1_score: 0.8248  Mult_acc_5: 0.5136  Mult_acc_7: 0.5099  MAE: 0.5747  Corr: 0.6768  Loss: 0.5747
+MMSA - TRAIN-(lmf) [1/3/2] >> loss: 0.586  Has0_acc_2: 0.8054  Has0_F1_score: 0.8098  Non0_acc_2: 0.8341  Non0_F1_score: 0.8334  Mult_acc_5: 0.5273  Mult_acc_7: 0.5121  MAE: 0.5859  Corr: 0.7078
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8247  Has0_F1_score: 0.8252  Non0_acc_2: 0.8324  Non0_F1_score: 0.8288  Mult_acc_5: 0.5387  Mult_acc_7: 0.5323  MAE: 0.5541  Corr: 0.6956  Loss: 0.5553
+MMSA - TRAIN-(lmf) [1/4/2] >> loss: 0.5715  Has0_acc_2: 0.8115  Has0_F1_score: 0.8154  Non0_acc_2: 0.8403  Non0_F1_score: 0.8393  Mult_acc_5: 0.5409  Mult_acc_7: 0.5241  MAE: 0.5714  Corr: 0.7209
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7974  Has0_F1_score: 0.8054  Non0_acc_2: 0.8387  Non0_F1_score: 0.8395  Mult_acc_5: 0.5420  Mult_acc_7: 0.5297  MAE: 0.5481  Corr: 0.7011  Loss: 0.5502
+MMSA - TRAIN-(lmf) [1/5/2] >> loss: 0.5581  Has0_acc_2: 0.8143  Has0_F1_score: 0.8184  Non0_acc_2: 0.8466  Non0_F1_score: 0.8457  Mult_acc_5: 0.5516  Mult_acc_7: 0.5349  MAE: 0.5574  Corr: 0.7356
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8215  Has0_F1_score: 0.8251  Non0_acc_2: 0.8414  Non0_F1_score: 0.8402  Mult_acc_5: 0.5307  Mult_acc_7: 0.5195  MAE: 0.5469  Corr: 0.7007  Loss: 0.5461
+MMSA - TRAIN-(lmf) [1/6/2] >> loss: 0.5501  Has0_acc_2: 0.8159  Has0_F1_score: 0.8202  Non0_acc_2: 0.8505  Non0_F1_score: 0.8499  Mult_acc_5: 0.5596  Mult_acc_7: 0.5423  MAE: 0.5506  Corr: 0.7423
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8311  Has0_F1_score: 0.8297  Non0_acc_2: 0.8310  Non0_F1_score: 0.8261  Mult_acc_5: 0.5457  Mult_acc_7: 0.5318  MAE: 0.5563  Corr: 0.7025  Loss: 0.5560
+MMSA - TRAIN-(lmf) [2/7/2] >> loss: 0.5393  Has0_acc_2: 0.8194  Has0_F1_score: 0.8233  Non0_acc_2: 0.8541  Non0_F1_score: 0.8532  Mult_acc_5: 0.5647  Mult_acc_7: 0.5450  MAE: 0.5392  Corr: 0.7538
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8242  Has0_F1_score: 0.8289  Non0_acc_2: 0.8505  Non0_F1_score: 0.8502  Mult_acc_5: 0.5307  Mult_acc_7: 0.5184  MAE: 0.5511  Corr: 0.7090  Loss: 0.5525
+MMSA - TRAIN-(lmf) [3/8/2] >> loss: 0.53  Has0_acc_2: 0.8239  Has0_F1_score: 0.8279  Non0_acc_2: 0.8578  Non0_F1_score: 0.8572  Mult_acc_5: 0.5717  Mult_acc_7: 0.5515  MAE: 0.5297  Corr: 0.7619
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8161  Has0_F1_score: 0.8210  Non0_acc_2: 0.8456  Non0_F1_score: 0.8449  Mult_acc_5: 0.5232  Mult_acc_7: 0.5094  MAE: 0.5746  Corr: 0.6955  Loss: 0.5728
+MMSA - TRAIN-(lmf) [4/9/2] >> loss: 0.5235  Has0_acc_2: 0.8222  Has0_F1_score: 0.8265  Non0_acc_2: 0.8592  Non0_F1_score: 0.8586  Mult_acc_5: 0.5759  Mult_acc_7: 0.5569  MAE: 0.5240  Corr: 0.7671
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8365  Has0_F1_score: 0.8359  Non0_acc_2: 0.8442  Non0_F1_score: 0.8401  Mult_acc_5: 0.5035  Mult_acc_7: 0.4944  MAE: 0.5652  Corr: 0.7140  Loss: 0.5659
+MMSA - TRAIN-(lmf) [5/10/2] >> loss: 0.5169  Has0_acc_2: 0.8242  Has0_F1_score: 0.8284  Non0_acc_2: 0.8623  Non0_F1_score: 0.8618  Mult_acc_5: 0.5784  Mult_acc_7: 0.5582  MAE: 0.5159  Corr: 0.7753
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8263  Has0_F1_score: 0.8288  Non0_acc_2: 0.8456  Non0_F1_score: 0.8435  Mult_acc_5: 0.5222  Mult_acc_7: 0.5077  MAE: 0.5701  Corr: 0.7067  Loss: 0.5687
+MMSA - TRAIN-(lmf) [6/11/2] >> loss: 0.506  Has0_acc_2: 0.8292  Has0_F1_score: 0.8331  Non0_acc_2: 0.8679  Non0_F1_score: 0.8672  Mult_acc_5: 0.5904  Mult_acc_7: 0.5711  MAE: 0.5065  Corr: 0.7818
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8177  Has0_F1_score: 0.8225  Non0_acc_2: 0.8408  Non0_F1_score: 0.8403  Mult_acc_5: 0.5468  Mult_acc_7: 0.5350  MAE: 0.5501  Corr: 0.6992  Loss: 0.5497
+MMSA - TRAIN-(lmf) [7/12/2] >> loss: 0.4994  Has0_acc_2: 0.8314  Has0_F1_score: 0.8353  Non0_acc_2: 0.8724  Non0_F1_score: 0.8716  Mult_acc_5: 0.5951  Mult_acc_7: 0.5739  MAE: 0.4995  Corr: 0.7878
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8199  Has0_F1_score: 0.8236  Non0_acc_2: 0.8477  Non0_F1_score: 0.8460  Mult_acc_5: 0.5468  Mult_acc_7: 0.5345  MAE: 0.5349  Corr: 0.7136  Loss: 0.5339
+MMSA - TRAIN-(lmf) [1/13/2] >> loss: 0.4928  Has0_acc_2: 0.8335  Has0_F1_score: 0.8374  Non0_acc_2: 0.8735  Non0_F1_score: 0.8730  Mult_acc_5: 0.5993  Mult_acc_7: 0.5790  MAE: 0.4924  Corr: 0.7923
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7707  Has0_F1_score: 0.7816  Non0_acc_2: 0.8255  Non0_F1_score: 0.8275  Mult_acc_5: 0.5430  Mult_acc_7: 0.5334  MAE: 0.5444  Corr: 0.7092  Loss: 0.5450
+MMSA - TRAIN-(lmf) [2/14/2] >> loss: 0.4884  Has0_acc_2: 0.8315  Has0_F1_score: 0.8355  Non0_acc_2: 0.8720  Non0_F1_score: 0.8715  Mult_acc_5: 0.6035  Mult_acc_7: 0.5828  MAE: 0.4885  Corr: 0.7966
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7910  Has0_F1_score: 0.7983  Non0_acc_2: 0.8261  Non0_F1_score: 0.8263  Mult_acc_5: 0.5494  Mult_acc_7: 0.5377  MAE: 0.5489  Corr: 0.6967  Loss: 0.5470
+MMSA - TRAIN-(lmf) [3/15/2] >> loss: 0.4836  Has0_acc_2: 0.8350  Has0_F1_score: 0.8389  Non0_acc_2: 0.8767  Non0_F1_score: 0.8761  Mult_acc_5: 0.6071  Mult_acc_7: 0.5854  MAE: 0.4835  Corr: 0.8005
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8316  Has0_F1_score: 0.8322  Non0_acc_2: 0.8366  Non0_F1_score: 0.8335  Mult_acc_5: 0.5275  Mult_acc_7: 0.5142  MAE: 0.5536  Corr: 0.7015  Loss: 0.5530
+MMSA - TRAIN-(lmf) [4/16/2] >> loss: 0.4739  Has0_acc_2: 0.8380  Has0_F1_score: 0.8420  Non0_acc_2: 0.8813  Non0_F1_score: 0.8808  Mult_acc_5: 0.6167  Mult_acc_7: 0.5945  MAE: 0.4738  Corr: 0.8091
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8017  Has0_F1_score: 0.8088  Non0_acc_2: 0.8463  Non0_F1_score: 0.8463  Mult_acc_5: 0.5345  Mult_acc_7: 0.5216  MAE: 0.5531  Corr: 0.7091  Loss: 0.5518
+MMSA - TRAIN-(lmf) [5/17/2] >> loss: 0.4701  Has0_acc_2: 0.8323  Has0_F1_score: 0.8364  Non0_acc_2: 0.8756  Non0_F1_score: 0.8751  Mult_acc_5: 0.6168  Mult_acc_7: 0.5957  MAE: 0.4705  Corr: 0.8111
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8236  Has0_F1_score: 0.8279  Non0_acc_2: 0.8463  Non0_F1_score: 0.8457  Mult_acc_5: 0.5494  Mult_acc_7: 0.5377  MAE: 0.5447  Corr: 0.7024  Loss: 0.5462
+MMSA - TRAIN-(lmf) [6/18/2] >> loss: 0.4663  Has0_acc_2: 0.8384  Has0_F1_score: 0.8423  Non0_acc_2: 0.8846  Non0_F1_score: 0.8841  Mult_acc_5: 0.6193  Mult_acc_7: 0.5973  MAE: 0.4662  Corr: 0.8140
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8071  Has0_F1_score: 0.8133  Non0_acc_2: 0.8317  Non0_F1_score: 0.8322  Mult_acc_5: 0.5425  Mult_acc_7: 0.5318  MAE: 0.5524  Corr: 0.6890  Loss: 0.5539
+MMSA - TRAIN-(lmf) [7/19/2] >> loss: 0.4609  Has0_acc_2: 0.8387  Has0_F1_score: 0.8428  Non0_acc_2: 0.8857  Non0_F1_score: 0.8852  Mult_acc_5: 0.6253  Mult_acc_7: 0.6032  MAE: 0.4610  Corr: 0.8183
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7974  Has0_F1_score: 0.8032  Non0_acc_2: 0.8206  Non0_F1_score: 0.8202  Mult_acc_5: 0.5345  Mult_acc_7: 0.5227  MAE: 0.5573  Corr: 0.6897  Loss: 0.5552
+MMSA - TRAIN-(lmf) [8/20/2] >> loss: 0.4528  Has0_acc_2: 0.8407  Has0_F1_score: 0.8447  Non0_acc_2: 0.8874  Non0_F1_score: 0.8869  Mult_acc_5: 0.6313  Mult_acc_7: 0.6095  MAE: 0.4528  Corr: 0.8245
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7536  Has0_F1_score: 0.7662  Non0_acc_2: 0.8060  Non0_F1_score: 0.8092  Mult_acc_5: 0.5377  Mult_acc_7: 0.5265  MAE: 0.5710  Corr: 0.6782  Loss: 0.5715
+MMSA - TEST-(lmf) >>  Has0_acc_2: 0.8040  Has0_F1_score: 0.8079  Non0_acc_2: 0.8313  Non0_F1_score: 0.8301  Mult_acc_5: 0.5317  Mult_acc_7: 0.5181  MAE: 0.5592  Corr: 0.7336  Loss: 0.5593
+MMSA - Result for seed 1112: {'Has0_acc_2': 0.804, 'Has0_F1_score': 0.8079, 'Non0_acc_2': 0.8313, 'Non0_F1_score': 0.8301, 'Mult_acc_5': 0.5317, 'Mult_acc_7': 0.5181, 'MAE': 0.5592, 'Corr': 0.7336, 'Loss': 0.5593}
+MMSA - ------------------------------ Running with seed 1113 [3/5] ------------------------------
+MMSA - train samples: (16326,)
+MMSA - valid samples: (1871,)
+MMSA - test samples: (4659,)
+MMSA - The model has 508475 trainable parameters
+MMSA - TRAIN-(lmf) [1/1/3] >> loss: 0.6734  Has0_acc_2: 0.7698  Has0_F1_score: 0.7730  Non0_acc_2: 0.7880  Non0_F1_score: 0.7850  Mult_acc_5: 0.4724  Mult_acc_7: 0.4665  MAE: 0.6737  Corr: 0.5866
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7974  Has0_F1_score: 0.8033  Non0_acc_2: 0.8241  Non0_F1_score: 0.8236  Mult_acc_5: 0.5099  Mult_acc_7: 0.5088  MAE: 0.5792  Corr: 0.6610  Loss: 0.5785
+MMSA - TRAIN-(lmf) [1/2/3] >> loss: 0.6152  Has0_acc_2: 0.7950  Has0_F1_score: 0.7992  Non0_acc_2: 0.8207  Non0_F1_score: 0.8195  Mult_acc_5: 0.5099  Mult_acc_7: 0.4996  MAE: 0.6148  Corr: 0.6730
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7873  Has0_F1_score: 0.7963  Non0_acc_2: 0.8331  Non0_F1_score: 0.8344  Mult_acc_5: 0.5430  Mult_acc_7: 0.5339  MAE: 0.5605  Corr: 0.6792  Loss: 0.5617
+MMSA - TRAIN-(lmf) [1/3/3] >> loss: 0.5875  Has0_acc_2: 0.8004  Has0_F1_score: 0.8052  Non0_acc_2: 0.8341  Non0_F1_score: 0.8333  Mult_acc_5: 0.5287  Mult_acc_7: 0.5140  MAE: 0.5874  Corr: 0.7034
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8327  Has0_F1_score: 0.8314  Non0_acc_2: 0.8352  Non0_F1_score: 0.8303  Mult_acc_5: 0.5136  Mult_acc_7: 0.5040  MAE: 0.5721  Corr: 0.6971  Loss: 0.5721
+MMSA - TRAIN-(lmf) [2/4/3] >> loss: 0.5654  Has0_acc_2: 0.8073  Has0_F1_score: 0.8117  Non0_acc_2: 0.8427  Non0_F1_score: 0.8418  Mult_acc_5: 0.5480  Mult_acc_7: 0.5315  MAE: 0.5650  Corr: 0.7273
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8108  Has0_F1_score: 0.8163  Non0_acc_2: 0.8408  Non0_F1_score: 0.8404  Mult_acc_5: 0.5387  Mult_acc_7: 0.5286  MAE: 0.5437  Corr: 0.7084  Loss: 0.5443
+MMSA - TRAIN-(lmf) [1/5/3] >> loss: 0.551  Has0_acc_2: 0.8123  Has0_F1_score: 0.8168  Non0_acc_2: 0.8485  Non0_F1_score: 0.8479  Mult_acc_5: 0.5549  Mult_acc_7: 0.5371  MAE: 0.5510  Corr: 0.7426
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8161  Has0_F1_score: 0.8192  Non0_acc_2: 0.8366  Non0_F1_score: 0.8345  Mult_acc_5: 0.5457  Mult_acc_7: 0.5355  MAE: 0.5409  Corr: 0.7109  Loss: 0.5403
+MMSA - TRAIN-(lmf) [1/6/3] >> loss: 0.5443  Has0_acc_2: 0.8153  Has0_F1_score: 0.8194  Non0_acc_2: 0.8511  Non0_F1_score: 0.8502  Mult_acc_5: 0.5617  Mult_acc_7: 0.5438  MAE: 0.5442  Corr: 0.7491
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8119  Has0_F1_score: 0.8163  Non0_acc_2: 0.8408  Non0_F1_score: 0.8395  Mult_acc_5: 0.5494  Mult_acc_7: 0.5371  MAE: 0.5403  Corr: 0.7140  Loss: 0.5400
+MMSA - TRAIN-(lmf) [1/7/3] >> loss: 0.5344  Has0_acc_2: 0.8144  Has0_F1_score: 0.8191  Non0_acc_2: 0.8527  Non0_F1_score: 0.8522  Mult_acc_5: 0.5699  Mult_acc_7: 0.5513  MAE: 0.5345  Corr: 0.7552
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8081  Has0_F1_score: 0.8152  Non0_acc_2: 0.8484  Non0_F1_score: 0.8490  Mult_acc_5: 0.5489  Mult_acc_7: 0.5366  MAE: 0.5363  Corr: 0.7138  Loss: 0.5344
+MMSA - TRAIN-(lmf) [1/8/3] >> loss: 0.527  Has0_acc_2: 0.8167  Has0_F1_score: 0.8210  Non0_acc_2: 0.8545  Non0_F1_score: 0.8538  Mult_acc_5: 0.5738  Mult_acc_7: 0.5546  MAE: 0.5262  Corr: 0.7644
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7830  Has0_F1_score: 0.7926  Non0_acc_2: 0.8401  Non0_F1_score: 0.8412  Mult_acc_5: 0.5420  Mult_acc_7: 0.5323  MAE: 0.5367  Corr: 0.7126  Loss: 0.5351
+MMSA - TRAIN-(lmf) [2/9/3] >> loss: 0.5181  Has0_acc_2: 0.8201  Has0_F1_score: 0.8245  Non0_acc_2: 0.8606  Non0_F1_score: 0.8600  Mult_acc_5: 0.5823  Mult_acc_7: 0.5620  MAE: 0.5184  Corr: 0.7721
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7867  Has0_F1_score: 0.7964  Non0_acc_2: 0.8394  Non0_F1_score: 0.8410  Mult_acc_5: 0.5462  Mult_acc_7: 0.5345  MAE: 0.5405  Corr: 0.7063  Loss: 0.5390
+MMSA - TRAIN-(lmf) [3/10/3] >> loss: 0.5099  Has0_acc_2: 0.8205  Has0_F1_score: 0.8250  Non0_acc_2: 0.8619  Non0_F1_score: 0.8613  Mult_acc_5: 0.5894  Mult_acc_7: 0.5695  MAE: 0.5101  Corr: 0.7755
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7974  Has0_F1_score: 0.8052  Non0_acc_2: 0.8331  Non0_F1_score: 0.8341  Mult_acc_5: 0.5510  Mult_acc_7: 0.5414  MAE: 0.5409  Corr: 0.7077  Loss: 0.5396
+MMSA - TRAIN-(lmf) [4/11/3] >> loss: 0.5058  Has0_acc_2: 0.8238  Has0_F1_score: 0.8281  Non0_acc_2: 0.8653  Non0_F1_score: 0.8647  Mult_acc_5: 0.5921  Mult_acc_7: 0.5718  MAE: 0.5055  Corr: 0.7817
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8183  Has0_F1_score: 0.8231  Non0_acc_2: 0.8491  Non0_F1_score: 0.8483  Mult_acc_5: 0.5500  Mult_acc_7: 0.5409  MAE: 0.5363  Corr: 0.7147  Loss: 0.5360
+MMSA - TRAIN-(lmf) [5/12/3] >> loss: 0.4971  Has0_acc_2: 0.8261  Has0_F1_score: 0.8304  Non0_acc_2: 0.8691  Non0_F1_score: 0.8685  Mult_acc_5: 0.5969  Mult_acc_7: 0.5755  MAE: 0.4972  Corr: 0.7901
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8071  Has0_F1_score: 0.8109  Non0_acc_2: 0.8324  Non0_F1_score: 0.8304  Mult_acc_5: 0.5243  Mult_acc_7: 0.5104  MAE: 0.5589  Corr: 0.7093  Loss: 0.5583
+MMSA - TRAIN-(lmf) [6/13/3] >> loss: 0.4916  Has0_acc_2: 0.8269  Has0_F1_score: 0.8311  Non0_acc_2: 0.8717  Non0_F1_score: 0.8711  Mult_acc_5: 0.6021  Mult_acc_7: 0.5808  MAE: 0.4917  Corr: 0.7951
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7990  Has0_F1_score: 0.8060  Non0_acc_2: 0.8338  Non0_F1_score: 0.8341  Mult_acc_5: 0.5441  Mult_acc_7: 0.5313  MAE: 0.5473  Corr: 0.7041  Loss: 0.5491
+MMSA - TRAIN-(lmf) [7/14/3] >> loss: 0.4837  Has0_acc_2: 0.8314  Has0_F1_score: 0.8356  Non0_acc_2: 0.8787  Non0_F1_score: 0.8780  Mult_acc_5: 0.6085  Mult_acc_7: 0.5873  MAE: 0.4829  Corr: 0.8009
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7958  Has0_F1_score: 0.8031  Non0_acc_2: 0.8317  Non0_F1_score: 0.8321  Mult_acc_5: 0.5414  Mult_acc_7: 0.5291  MAE: 0.5553  Corr: 0.7005  Loss: 0.5563
+MMSA - TRAIN-(lmf) [8/15/3] >> loss: 0.4765  Has0_acc_2: 0.8304  Has0_F1_score: 0.8347  Non0_acc_2: 0.8778  Non0_F1_score: 0.8772  Mult_acc_5: 0.6163  Mult_acc_7: 0.5941  MAE: 0.4764  Corr: 0.8056
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8038  Has0_F1_score: 0.8111  Non0_acc_2: 0.8394  Non0_F1_score: 0.8401  Mult_acc_5: 0.5366  Mult_acc_7: 0.5238  MAE: 0.5596  Corr: 0.6998  Loss: 0.5633
+MMSA - TEST-(lmf) >>  Has0_acc_2: 0.7950  Has0_F1_score: 0.8017  Non0_acc_2: 0.8412  Non0_F1_score: 0.8415  Mult_acc_5: 0.5407  Mult_acc_7: 0.5254  MAE: 0.5611  Corr: 0.7367  Loss: 0.5611
+MMSA - Result for seed 1113: {'Has0_acc_2': 0.795, 'Has0_F1_score': 0.8017, 'Non0_acc_2': 0.8412, 'Non0_F1_score': 0.8415, 'Mult_acc_5': 0.5407, 'Mult_acc_7': 0.5254, 'MAE': 0.5611, 'Corr': 0.7367, 'Loss': 0.5611}
+MMSA - ------------------------------ Running with seed 1114 [4/5] ------------------------------
+MMSA - train samples: (16326,)
+MMSA - valid samples: (1871,)
+MMSA - test samples: (4659,)
+MMSA - The model has 508475 trainable parameters
+MMSA - TRAIN-(lmf) [1/1/4] >> loss: 0.6718  Has0_acc_2: 0.7733  Has0_F1_score: 0.7775  Non0_acc_2: 0.7923  Non0_F1_score: 0.7904  Mult_acc_5: 0.4733  Mult_acc_7: 0.4670  MAE: 0.6715  Corr: 0.5935
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8060  Has0_F1_score: 0.8072  Non0_acc_2: 0.8192  Non0_F1_score: 0.8150  Mult_acc_5: 0.5136  Mult_acc_7: 0.5072  MAE: 0.5914  Corr: 0.6483  Loss: 0.5904
+MMSA - TRAIN-(lmf) [1/2/4] >> loss: 0.6109  Has0_acc_2: 0.7995  Has0_F1_score: 0.8033  Non0_acc_2: 0.8243  Non0_F1_score: 0.8230  Mult_acc_5: 0.5111  Mult_acc_7: 0.4987  MAE: 0.6110  Corr: 0.6763
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7883  Has0_F1_score: 0.7970  Non0_acc_2: 0.8317  Non0_F1_score: 0.8328  Mult_acc_5: 0.5286  Mult_acc_7: 0.5168  MAE: 0.5726  Corr: 0.6766  Loss: 0.5702
+MMSA - TRAIN-(lmf) [1/3/4] >> loss: 0.5846  Has0_acc_2: 0.8083  Has0_F1_score: 0.8125  Non0_acc_2: 0.8376  Non0_F1_score: 0.8368  Mult_acc_5: 0.5297  Mult_acc_7: 0.5146  MAE: 0.5833  Corr: 0.7077
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8306  Has0_F1_score: 0.8295  Non0_acc_2: 0.8317  Non0_F1_score: 0.8271  Mult_acc_5: 0.5355  Mult_acc_7: 0.5259  MAE: 0.5572  Corr: 0.6873  Loss: 0.5587
+MMSA - TRAIN-(lmf) [1/4/4] >> loss: 0.5666  Has0_acc_2: 0.8128  Has0_F1_score: 0.8167  Non0_acc_2: 0.8424  Non0_F1_score: 0.8415  Mult_acc_5: 0.5424  Mult_acc_7: 0.5255  MAE: 0.5666  Corr: 0.7249
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8274  Has0_F1_score: 0.8218  Non0_acc_2: 0.8192  Non0_F1_score: 0.8100  Mult_acc_5: 0.5222  Mult_acc_7: 0.5147  MAE: 0.5707  Corr: 0.6939  Loss: 0.5704
+MMSA - TRAIN-(lmf) [2/5/4] >> loss: 0.5529  Has0_acc_2: 0.8192  Has0_F1_score: 0.8227  Non0_acc_2: 0.8503  Non0_F1_score: 0.8491  Mult_acc_5: 0.5538  Mult_acc_7: 0.5362  MAE: 0.5529  Corr: 0.7405
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8156  Has0_F1_score: 0.8132  Non0_acc_2: 0.8185  Non0_F1_score: 0.8116  Mult_acc_5: 0.5265  Mult_acc_7: 0.5147  MAE: 0.5772  Corr: 0.6845  Loss: 0.5769
+MMSA - TRAIN-(lmf) [3/6/4] >> loss: 0.5434  Has0_acc_2: 0.8206  Has0_F1_score: 0.8245  Non0_acc_2: 0.8552  Non0_F1_score: 0.8544  Mult_acc_5: 0.5600  Mult_acc_7: 0.5423  MAE: 0.5435  Corr: 0.7470
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8348  Has0_F1_score: 0.8332  Non0_acc_2: 0.8373  Non0_F1_score: 0.8321  Mult_acc_5: 0.5318  Mult_acc_7: 0.5265  MAE: 0.5531  Corr: 0.7074  Loss: 0.5519
+MMSA - TRAIN-(lmf) [1/7/4] >> loss: 0.5349  Has0_acc_2: 0.8213  Has0_F1_score: 0.8250  Non0_acc_2: 0.8553  Non0_F1_score: 0.8543  Mult_acc_5: 0.5685  Mult_acc_7: 0.5508  MAE: 0.5348  Corr: 0.7598
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7728  Has0_F1_score: 0.7842  Non0_acc_2: 0.8380  Non0_F1_score: 0.8401  Mult_acc_5: 0.5494  Mult_acc_7: 0.5345  MAE: 0.5641  Corr: 0.7021  Loss: 0.5643
+MMSA - TRAIN-(lmf) [2/8/4] >> loss: 0.525  Has0_acc_2: 0.8249  Has0_F1_score: 0.8291  Non0_acc_2: 0.8619  Non0_F1_score: 0.8613  Mult_acc_5: 0.5775  Mult_acc_7: 0.5594  MAE: 0.5251  Corr: 0.7641
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8071  Has0_F1_score: 0.8117  Non0_acc_2: 0.8324  Non0_F1_score: 0.8312  Mult_acc_5: 0.5404  Mult_acc_7: 0.5302  MAE: 0.5382  Corr: 0.7151  Loss: 0.5366
+MMSA - TRAIN-(lmf) [1/9/4] >> loss: 0.5191  Has0_acc_2: 0.8292  Has0_F1_score: 0.8328  Non0_acc_2: 0.8656  Non0_F1_score: 0.8647  Mult_acc_5: 0.5796  Mult_acc_7: 0.5598  MAE: 0.5186  Corr: 0.7730
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8044  Has0_F1_score: 0.8110  Non0_acc_2: 0.8401  Non0_F1_score: 0.8402  Mult_acc_5: 0.5452  Mult_acc_7: 0.5329  MAE: 0.5485  Corr: 0.7096  Loss: 0.5493
+MMSA - TRAIN-(lmf) [2/10/4] >> loss: 0.5122  Has0_acc_2: 0.8300  Has0_F1_score: 0.8336  Non0_acc_2: 0.8660  Non0_F1_score: 0.8652  Mult_acc_5: 0.5877  Mult_acc_7: 0.5675  MAE: 0.5120  Corr: 0.7768
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8076  Has0_F1_score: 0.8138  Non0_acc_2: 0.8373  Non0_F1_score: 0.8375  Mult_acc_5: 0.5361  Mult_acc_7: 0.5249  MAE: 0.5462  Corr: 0.7095  Loss: 0.5475
+MMSA - TRAIN-(lmf) [3/11/4] >> loss: 0.5039  Has0_acc_2: 0.8269  Has0_F1_score: 0.8309  Non0_acc_2: 0.8674  Non0_F1_score: 0.8667  Mult_acc_5: 0.5925  Mult_acc_7: 0.5719  MAE: 0.5041  Corr: 0.7842
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7974  Has0_F1_score: 0.8046  Non0_acc_2: 0.8255  Non0_F1_score: 0.8262  Mult_acc_5: 0.5462  Mult_acc_7: 0.5339  MAE: 0.5522  Corr: 0.6980  Loss: 0.5536
+MMSA - TRAIN-(lmf) [4/12/4] >> loss: 0.4956  Has0_acc_2: 0.8333  Has0_F1_score: 0.8371  Non0_acc_2: 0.8720  Non0_F1_score: 0.8714  Mult_acc_5: 0.5993  Mult_acc_7: 0.5790  MAE: 0.4957  Corr: 0.7912
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8274  Has0_F1_score: 0.8303  Non0_acc_2: 0.8401  Non0_F1_score: 0.8388  Mult_acc_5: 0.5398  Mult_acc_7: 0.5265  MAE: 0.5490  Corr: 0.7098  Loss: 0.5488
+MMSA - TRAIN-(lmf) [5/13/4] >> loss: 0.4873  Has0_acc_2: 0.8373  Has0_F1_score: 0.8408  Non0_acc_2: 0.8765  Non0_F1_score: 0.8758  Mult_acc_5: 0.6039  Mult_acc_7: 0.5820  MAE: 0.4874  Corr: 0.7978
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7835  Has0_F1_score: 0.7923  Non0_acc_2: 0.8199  Non0_F1_score: 0.8212  Mult_acc_5: 0.5393  Mult_acc_7: 0.5270  MAE: 0.5585  Corr: 0.6978  Loss: 0.5593
+MMSA - TRAIN-(lmf) [6/14/4] >> loss: 0.4801  Has0_acc_2: 0.8363  Has0_F1_score: 0.8401  Non0_acc_2: 0.8794  Non0_F1_score: 0.8788  Mult_acc_5: 0.6139  Mult_acc_7: 0.5920  MAE: 0.4803  Corr: 0.8033
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8135  Has0_F1_score: 0.8185  Non0_acc_2: 0.8408  Non0_F1_score: 0.8402  Mult_acc_5: 0.5425  Mult_acc_7: 0.5307  MAE: 0.5419  Corr: 0.7153  Loss: 0.5424
+MMSA - TRAIN-(lmf) [7/15/4] >> loss: 0.4792  Has0_acc_2: 0.8386  Has0_F1_score: 0.8423  Non0_acc_2: 0.8810  Non0_F1_score: 0.8804  Mult_acc_5: 0.6114  Mult_acc_7: 0.5894  MAE: 0.4793  Corr: 0.8050
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8183  Has0_F1_score: 0.8188  Non0_acc_2: 0.8213  Non0_F1_score: 0.8177  Mult_acc_5: 0.5329  Mult_acc_7: 0.5232  MAE: 0.5498  Corr: 0.7096  Loss: 0.5491
+MMSA - TRAIN-(lmf) [8/16/4] >> loss: 0.4715  Has0_acc_2: 0.8354  Has0_F1_score: 0.8394  Non0_acc_2: 0.8801  Non0_F1_score: 0.8796  Mult_acc_5: 0.6186  Mult_acc_7: 0.5967  MAE: 0.4717  Corr: 0.8103
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7531  Has0_F1_score: 0.7654  Non0_acc_2: 0.8025  Non0_F1_score: 0.8055  Mult_acc_5: 0.5489  Mult_acc_7: 0.5387  MAE: 0.5519  Corr: 0.7030  Loss: 0.5532
+MMSA - TEST-(lmf) >>  Has0_acc_2: 0.8103  Has0_F1_score: 0.8150  Non0_acc_2: 0.8412  Non0_F1_score: 0.8409  Mult_acc_5: 0.5323  Mult_acc_7: 0.5188  MAE: 0.5632  Corr: 0.7297  Loss: 0.5628
+MMSA - Result for seed 1114: {'Has0_acc_2': 0.8103, 'Has0_F1_score': 0.815, 'Non0_acc_2': 0.8412, 'Non0_F1_score': 0.8409, 'Mult_acc_5': 0.5323, 'Mult_acc_7': 0.5188, 'MAE': 0.5632, 'Corr': 0.7297, 'Loss': 0.5628}
+MMSA - ------------------------------ Running with seed 1115 [5/5] ------------------------------
+MMSA - train samples: (16326,)
+MMSA - valid samples: (1871,)
+MMSA - test samples: (4659,)
+MMSA - The model has 508475 trainable parameters
+MMSA - TRAIN-(lmf) [1/1/5] >> loss: 0.6658  Has0_acc_2: 0.7737  Has0_F1_score: 0.7773  Non0_acc_2: 0.7936  Non0_F1_score: 0.7911  Mult_acc_5: 0.4799  Mult_acc_7: 0.4720  MAE: 0.6657  Corr: 0.5996
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7728  Has0_F1_score: 0.7823  Non0_acc_2: 0.8192  Non0_F1_score: 0.8201  Mult_acc_5: 0.5232  Mult_acc_7: 0.5104  MAE: 0.5979  Corr: 0.6566  Loss: 0.5977
+MMSA - TRAIN-(lmf) [1/2/5] >> loss: 0.6051  Has0_acc_2: 0.7974  Has0_F1_score: 0.8022  Non0_acc_2: 0.8290  Non0_F1_score: 0.8283  Mult_acc_5: 0.5138  Mult_acc_7: 0.5017  MAE: 0.6043  Corr: 0.6874
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8220  Has0_F1_score: 0.8250  Non0_acc_2: 0.8352  Non0_F1_score: 0.8337  Mult_acc_5: 0.5211  Mult_acc_7: 0.5099  MAE: 0.5999  Corr: 0.6484  Loss: 0.5997
+MMSA - TRAIN-(lmf) [2/3/5] >> loss: 0.5792  Has0_acc_2: 0.8053  Has0_F1_score: 0.8102  Non0_acc_2: 0.8390  Non0_F1_score: 0.8384  Mult_acc_5: 0.5313  Mult_acc_7: 0.5170  MAE: 0.5792  Corr: 0.7146
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8215  Has0_F1_score: 0.8215  Non0_acc_2: 0.8338  Non0_F1_score: 0.8292  Mult_acc_5: 0.5238  Mult_acc_7: 0.5120  MAE: 0.5621  Corr: 0.6968  Loss: 0.5630
+MMSA - TRAIN-(lmf) [1/4/5] >> loss: 0.5637  Has0_acc_2: 0.8090  Has0_F1_score: 0.8136  Non0_acc_2: 0.8444  Non0_F1_score: 0.8437  Mult_acc_5: 0.5439  Mult_acc_7: 0.5276  MAE: 0.5640  Corr: 0.7301
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8055  Has0_F1_score: 0.8086  Non0_acc_2: 0.8331  Non0_F1_score: 0.8301  Mult_acc_5: 0.5404  Mult_acc_7: 0.5313  MAE: 0.5506  Corr: 0.7018  Loss: 0.5498
+MMSA - TRAIN-(lmf) [1/5/5] >> loss: 0.5514  Has0_acc_2: 0.8120  Has0_F1_score: 0.8166  Non0_acc_2: 0.8487  Non0_F1_score: 0.8481  Mult_acc_5: 0.5518  Mult_acc_7: 0.5336  MAE: 0.5515  Corr: 0.7421
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8290  Has0_F1_score: 0.8274  Non0_acc_2: 0.8324  Non0_F1_score: 0.8270  Mult_acc_5: 0.5468  Mult_acc_7: 0.5339  MAE: 0.5561  Corr: 0.6926  Loss: 0.5547
+MMSA - TRAIN-(lmf) [2/6/5] >> loss: 0.543  Has0_acc_2: 0.8153  Has0_F1_score: 0.8196  Non0_acc_2: 0.8530  Non0_F1_score: 0.8523  Mult_acc_5: 0.5597  Mult_acc_7: 0.5421  MAE: 0.5428  Corr: 0.7512
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8092  Has0_F1_score: 0.8152  Non0_acc_2: 0.8345  Non0_F1_score: 0.8349  Mult_acc_5: 0.5382  Mult_acc_7: 0.5238  MAE: 0.5812  Corr: 0.6966  Loss: 0.5813
+MMSA - TRAIN-(lmf) [3/7/5] >> loss: 0.528  Has0_acc_2: 0.8194  Has0_F1_score: 0.8240  Non0_acc_2: 0.8579  Non0_F1_score: 0.8575  Mult_acc_5: 0.5743  Mult_acc_7: 0.5548  MAE: 0.5281  Corr: 0.7648
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8161  Has0_F1_score: 0.8190  Non0_acc_2: 0.8373  Non0_F1_score: 0.8350  Mult_acc_5: 0.5334  Mult_acc_7: 0.5232  MAE: 0.5525  Corr: 0.6971  Loss: 0.5527
+MMSA - TRAIN-(lmf) [4/8/5] >> loss: 0.5239  Has0_acc_2: 0.8173  Has0_F1_score: 0.8219  Non0_acc_2: 0.8577  Non0_F1_score: 0.8571  Mult_acc_5: 0.5734  Mult_acc_7: 0.5552  MAE: 0.5243  Corr: 0.7657
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8129  Has0_F1_score: 0.8163  Non0_acc_2: 0.8331  Non0_F1_score: 0.8311  Mult_acc_5: 0.5420  Mult_acc_7: 0.5318  MAE: 0.5443  Corr: 0.7114  Loss: 0.5446
+MMSA - TRAIN-(lmf) [1/9/5] >> loss: 0.5172  Has0_acc_2: 0.8241  Has0_F1_score: 0.8286  Non0_acc_2: 0.8657  Non0_F1_score: 0.8653  Mult_acc_5: 0.5805  Mult_acc_7: 0.5606  MAE: 0.5174  Corr: 0.7738
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8167  Has0_F1_score: 0.8183  Non0_acc_2: 0.8359  Non0_F1_score: 0.8324  Mult_acc_5: 0.5350  Mult_acc_7: 0.5265  MAE: 0.5535  Corr: 0.7108  Loss: 0.5560
+MMSA - TRAIN-(lmf) [2/10/5] >> loss: 0.5082  Has0_acc_2: 0.8248  Has0_F1_score: 0.8292  Non0_acc_2: 0.8674  Non0_F1_score: 0.8668  Mult_acc_5: 0.5835  Mult_acc_7: 0.5621  MAE: 0.5078  Corr: 0.7823
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8060  Has0_F1_score: 0.8120  Non0_acc_2: 0.8373  Non0_F1_score: 0.8371  Mult_acc_5: 0.5441  Mult_acc_7: 0.5323  MAE: 0.5471  Corr: 0.7068  Loss: 0.5469
+MMSA - TRAIN-(lmf) [3/11/5] >> loss: 0.5028  Has0_acc_2: 0.8228  Has0_F1_score: 0.8272  Non0_acc_2: 0.8667  Non0_F1_score: 0.8660  Mult_acc_5: 0.5940  Mult_acc_7: 0.5739  MAE: 0.5029  Corr: 0.7867
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7910  Has0_F1_score: 0.7985  Non0_acc_2: 0.8331  Non0_F1_score: 0.8331  Mult_acc_5: 0.5510  Mult_acc_7: 0.5387  MAE: 0.5593  Corr: 0.7012  Loss: 0.5620
+MMSA - TRAIN-(lmf) [4/12/5] >> loss: 0.4943  Has0_acc_2: 0.8297  Has0_F1_score: 0.8339  Non0_acc_2: 0.8734  Non0_F1_score: 0.8728  Mult_acc_5: 0.5973  Mult_acc_7: 0.5766  MAE: 0.4944  Corr: 0.7933
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8183  Has0_F1_score: 0.8228  Non0_acc_2: 0.8394  Non0_F1_score: 0.8389  Mult_acc_5: 0.5441  Mult_acc_7: 0.5334  MAE: 0.5444  Corr: 0.7025  Loss: 0.5424
+MMSA - TRAIN-(lmf) [1/13/5] >> loss: 0.4897  Has0_acc_2: 0.8328  Has0_F1_score: 0.8368  Non0_acc_2: 0.8771  Non0_F1_score: 0.8766  Mult_acc_5: 0.6061  Mult_acc_7: 0.5845  MAE: 0.4900  Corr: 0.7974
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7851  Has0_F1_score: 0.7944  Non0_acc_2: 0.8289  Non0_F1_score: 0.8305  Mult_acc_5: 0.5521  Mult_acc_7: 0.5409  MAE: 0.5531  Corr: 0.6989  Loss: 0.5529
+MMSA - TRAIN-(lmf) [2/14/5] >> loss: 0.4866  Has0_acc_2: 0.8316  Has0_F1_score: 0.8358  Non0_acc_2: 0.8767  Non0_F1_score: 0.8762  Mult_acc_5: 0.5990  Mult_acc_7: 0.5783  MAE: 0.4863  Corr: 0.7993
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7948  Has0_F1_score: 0.8017  Non0_acc_2: 0.8310  Non0_F1_score: 0.8310  Mult_acc_5: 0.5484  Mult_acc_7: 0.5355  MAE: 0.5472  Corr: 0.7120  Loss: 0.5485
+MMSA - TRAIN-(lmf) [3/15/5] >> loss: 0.4772  Has0_acc_2: 0.8325  Has0_F1_score: 0.8368  Non0_acc_2: 0.8783  Non0_F1_score: 0.8779  Mult_acc_5: 0.6122  Mult_acc_7: 0.5912  MAE: 0.4772  Corr: 0.8071
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8236  Has0_F1_score: 0.8210  Non0_acc_2: 0.8220  Non0_F1_score: 0.8155  Mult_acc_5: 0.5206  Mult_acc_7: 0.5094  MAE: 0.5682  Corr: 0.6953  Loss: 0.5670
+MMSA - TRAIN-(lmf) [4/16/5] >> loss: 0.4729  Has0_acc_2: 0.8352  Has0_F1_score: 0.8392  Non0_acc_2: 0.8810  Non0_F1_score: 0.8805  Mult_acc_5: 0.6114  Mult_acc_7: 0.5891  MAE: 0.4730  Corr: 0.8098
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7579  Has0_F1_score: 0.7704  Non0_acc_2: 0.8129  Non0_F1_score: 0.8161  Mult_acc_5: 0.5420  Mult_acc_7: 0.5291  MAE: 0.5539  Corr: 0.6969  Loss: 0.5535
+MMSA - TRAIN-(lmf) [5/17/5] >> loss: 0.4669  Has0_acc_2: 0.8341  Has0_F1_score: 0.8384  Non0_acc_2: 0.8821  Non0_F1_score: 0.8816  Mult_acc_5: 0.6194  Mult_acc_7: 0.5980  MAE: 0.4670  Corr: 0.8144
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8274  Has0_F1_score: 0.8264  Non0_acc_2: 0.8324  Non0_F1_score: 0.8275  Mult_acc_5: 0.5361  Mult_acc_7: 0.5243  MAE: 0.5522  Corr: 0.7054  Loss: 0.5529
+MMSA - TRAIN-(lmf) [6/18/5] >> loss: 0.4608  Has0_acc_2: 0.8364  Has0_F1_score: 0.8407  Non0_acc_2: 0.8835  Non0_F1_score: 0.8831  Mult_acc_5: 0.6257  Mult_acc_7: 0.6046  MAE: 0.4602  Corr: 0.8195
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7937  Has0_F1_score: 0.8018  Non0_acc_2: 0.8324  Non0_F1_score: 0.8334  Mult_acc_5: 0.5323  Mult_acc_7: 0.5168  MAE: 0.5830  Corr: 0.7054  Loss: 0.5838
+MMSA - TRAIN-(lmf) [7/19/5] >> loss: 0.4567  Has0_acc_2: 0.8388  Has0_F1_score: 0.8429  Non0_acc_2: 0.8889  Non0_F1_score: 0.8883  Mult_acc_5: 0.6299  Mult_acc_7: 0.6075  MAE: 0.4568  Corr: 0.8215
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.7573  Has0_F1_score: 0.7693  Non0_acc_2: 0.8115  Non0_F1_score: 0.8141  Mult_acc_5: 0.5414  Mult_acc_7: 0.5291  MAE: 0.5613  Corr: 0.6985  Loss: 0.5639
+MMSA - TRAIN-(lmf) [8/20/5] >> loss: 0.45  Has0_acc_2: 0.8411  Has0_F1_score: 0.8451  Non0_acc_2: 0.8903  Non0_F1_score: 0.8899  Mult_acc_5: 0.6335  Mult_acc_7: 0.6118  MAE: 0.4499  Corr: 0.8264
+MMSA - VAL-(lmf) >>  Has0_acc_2: 0.8006  Has0_F1_score: 0.8071  Non0_acc_2: 0.8275  Non0_F1_score: 0.8278  Mult_acc_5: 0.5409  Mult_acc_7: 0.5270  MAE: 0.5591  Corr: 0.7011  Loss: 0.5595
+MMSA - TEST-(lmf) >>  Has0_acc_2: 0.8092  Has0_F1_score: 0.8135  Non0_acc_2: 0.8396  Non0_F1_score: 0.8389  Mult_acc_5: 0.5360  Mult_acc_7: 0.5214  MAE: 0.5660  Corr: 0.7302  Loss: 0.5660
+MMSA - Result for seed 1115: {'Has0_acc_2': 0.8092, 'Has0_F1_score': 0.8135, 'Non0_acc_2': 0.8396, 'Non0_F1_score': 0.8389, 'Mult_acc_5': 0.536, 'Mult_acc_7': 0.5214, 'MAE': 0.566, 'Corr': 0.7302, 'Loss': 0.566}
+MMSA - Results saved to <MMSA>/runs/results/lmf/normal/mosei.csv.

@@ -1,0 +1,6 @@
+variant                                             coupling  odd share
+Primal block (ours): softmax pooling, free core     2.55e-02      0.805
+Lin. pooling: linear pooling, free core             3.00e-02      0.999
+W_d|X core: softmax pooling, Gram core              1.39e-01      0.320
+linear pooling, Gram core                           7.72e-02      0.000
+Static W_d                                          0.00e+00        n/a

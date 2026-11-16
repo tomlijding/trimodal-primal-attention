@@ -1,0 +1,15 @@
+# Versions used for the MOSEI runs of the paper (Python 3.10, CUDA 12.1 build of PyTorch).
+# Install these before MMSA: an unpinned install resolves to an old boto3/botocore that does
+# not import on Python >= 3.10, and to NumPy 2 / transformers 5, which MMSA was not written for.
+torch==2.4.1
+numpy==1.26.4
+pandas==2.1.4
+scikit-learn==1.7.2
+scipy==1.15.3
+transformers==4.38.2
+pytorch-transformers==1.2.0
+boto3==1.43.114
+botocore==1.43.114
+easydict==1.13
+tqdm==4.70.1
+einops==0.8.2

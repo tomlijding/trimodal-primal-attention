@@ -1,0 +1,20 @@
+[project]
+name = "primal-block"
+version = "0.1.0"
+description = "Trimodal attention at linear cost, from the primal of the kernelizable MLSVD"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Tom Lijding" }, { name = "Kim Batselier" }]
+dependencies = ["torch>=2.1", "numpy>=1.24"]
+
+[project.optional-dependencies]
+# For experiments/mosei and experiments/scaling/memory.py, next to the patched MMSA.
+mosei = ["scipy>=1.10", "easydict>=1.9"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["primal_block"]

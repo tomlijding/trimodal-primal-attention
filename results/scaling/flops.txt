@@ -1,0 +1,15 @@
+FLOPs per sample, closed form vs torch.utils.flop_counter
+     N   primal closed        measured     MulT closed        measured
+    16       1,015,200       1,015,200         875,520         875,520
+   100       6,156,000       6,156,000      11,520,000      11,520,000
+   500      30,636,000      30,636,000     201,600,000     201,600,000
+
+FLOPs per sample, MulT pairwise cross-attention vs primal operation
+     N          primal              MulT   ratio
+    50       3,096,000         3,960,000    1.3x
+   500      30,636,000       201,600,000    6.6x
+  1000      61,236,000       763,200,000   12.5x
+  4000     244,836,000    11,692,800,000   47.8x
+ 16000     979,236,000   185,011,200,000  188.9x
+
+Explicit N^3 score tensor, float32, batch 32: largest N within 24 GiB = 586

@@ -1,0 +1,158 @@
+diff --git a/src/MMSA/models/singleTask/MULT.py b/src/MMSA/models/singleTask/MULT.py
+index 7083879..b16b1f9 100644
+--- a/src/MMSA/models/singleTask/MULT.py
++++ b/src/MMSA/models/singleTask/MULT.py
+@@ -3,12 +3,14 @@ From: https://github.com/yaohungt/Multimodal-Transformer
+ Paper: Multimodal Transformer for Unaligned Multimodal Language Sequences
+ """
+ 
++import math
++
+ import torch
+ import torch.nn as nn
+ import torch.nn.functional as F
+ 
+ from ..subNets import BertTextEncoder
+-from ..subNets.transformers_encoder.transformer import TransformerEncoder
++from ..subNets.transformers_encoder.transformer import TransformerEncoder, LayerNorm
+ 
+ __all__ = ['MULT']
+ 
+@@ -34,24 +36,35 @@ class MULT(nn.Module):
+         self.text_dropout = args.text_dropout
+         self.attn_mask = args.attn_mask
+ 
++        # fusion: which cross-modal stage to use (default = MulT).
++        #   crossmodal  MulT's 6 pairwise cross-modal transformers (original)
++        #   nocross     the same 6 transformers as self-attention: no stream sees another
++        #   primal      nlevels trimodal primal blocks over all 3 streams jointly, width 2d,
++        #               so the memory transformers and head below are unchanged
++        self.fusion = args.get('fusion', 'crossmodal')
++        assert self.fusion in ('crossmodal', 'nocross', 'primal'), self.fusion
+         combined_dim = 2 * (self.d_l + self.d_a + self.d_v)
+         
+         output_dim = args.num_classes if args.train_mode == "classification" else 1
+         
+         # 1. Temporal convolutional layers
+-        self.proj_l = nn.Conv1d(self.orig_d_l, self.d_l, kernel_size=args.conv1d_kernel_size_l, padding=0, bias=False)
+-        self.proj_a = nn.Conv1d(self.orig_d_a, self.d_a, kernel_size=args.conv1d_kernel_size_a, padding=0, bias=False)
+-        self.proj_v = nn.Conv1d(self.orig_d_v, self.d_v, kernel_size=args.conv1d_kernel_size_v, padding=0, bias=False)
++        w = 2 if self.fusion == 'primal' else 1
++        self.proj_l = nn.Conv1d(self.orig_d_l, w * self.d_l, kernel_size=args.conv1d_kernel_size_l, padding=0, bias=False)
++        self.proj_a = nn.Conv1d(self.orig_d_a, w * self.d_a, kernel_size=args.conv1d_kernel_size_a, padding=0, bias=False)
++        self.proj_v = nn.Conv1d(self.orig_d_v, w * self.d_v, kernel_size=args.conv1d_kernel_size_v, padding=0, bias=False)
+ 
+-        # 2. Crossmodal Attentions
+-        self.trans_l_with_a = self.get_network(self_type='la')
+-        self.trans_l_with_v = self.get_network(self_type='lv')
+-    
+-        self.trans_a_with_l = self.get_network(self_type='al')
+-        self.trans_a_with_v = self.get_network(self_type='av')
+-    
+-        self.trans_v_with_l = self.get_network(self_type='vl')
+-        self.trans_v_with_a = self.get_network(self_type='va')
++        if self.fusion == 'primal':
++            from primal_block import PrimalBlock
++            D = 2 * self.d_l
++            self.primal_blocks = nn.ModuleList([
++                PrimalBlock(D, num_heads=nheads, rank=args.get('primal_rank', 10),
++                            pooling=args.get('primal_pooling', 'softmax'),
++                            core=args.get('primal_core', 'free'),
++                            mlp_ratio=2.0, proj_drop=self.res_dropout)
++                for _ in range(self.layers)])
++            self.primal_norms = nn.ModuleList([LayerNorm(D) for _ in range(3)])
++        else:
++            self._build_crossmodal()
+ 
+         # 3. Self Attentions (Could be replaced by LSTMs, GRUs, etc.)
+         #    [e.g., self.trans_x_mem = nn.LSTM(self.d_x, self.d_x, 1)
+@@ -60,12 +73,21 @@ class MULT(nn.Module):
+         self.trans_v_mem = self.get_network(self_type='v_mem', layers=3)
+ 
+         # Projection layers
+-        # print("combined_dim: shape")
+-        # print(combined_dim)
+         self.proj1 = nn.Linear(combined_dim, combined_dim)
+         self.proj2 = nn.Linear(combined_dim, combined_dim)
+         self.out_layer = nn.Linear(combined_dim, output_dim)
+ 
++    def _build_crossmodal(self):
++        # 2. Crossmodal Attentions
++        self.trans_l_with_a = self.get_network(self_type='la')
++        self.trans_l_with_v = self.get_network(self_type='lv')
++    
++        self.trans_a_with_l = self.get_network(self_type='al')
++        self.trans_a_with_v = self.get_network(self_type='av')
++    
++        self.trans_v_with_l = self.get_network(self_type='vl')
++        self.trans_v_with_a = self.get_network(self_type='va')
++
+     def get_network(self, self_type='l', layers=-1):
+         if self_type in ['l', 'al', 'vl']:
+             embed_dim, attn_dropout = self.d_l, self.attn_dropout
+@@ -92,6 +114,16 @@ class MULT(nn.Module):
+                                   embed_dropout=self.embed_dropout,
+                                   attn_mask=self.attn_mask)
+ 
++    def _primal_fuse(self, x_l, x_a, x_v):
++        """Trimodal fusion of the three (L, N, 2d) streams; same input scaling and
++        embedding dropout as MulT's TransformerEncoder, final LayerNorm like it too."""
++        scale = math.sqrt(x_l.shape[-1])
++        xs = [F.dropout(scale * x.transpose(0, 1), p=self.embed_dropout, training=self.training)
++              for x in (x_l, x_a, x_v)]                       # (N, L, 2d) for the block
++        for blk in self.primal_blocks:
++            xs = blk(*xs)
++        return [norm(x).transpose(0, 1) for norm, x in zip(self.primal_norms, xs)]
++
+     def forward(self, text, audio, video):
+         if self.use_bert:
+             text = self.text_model(text)
+@@ -106,29 +138,33 @@ class MULT(nn.Module):
+         proj_x_v = proj_x_v.permute(2, 0, 1)
+         proj_x_l = proj_x_l.permute(2, 0, 1)
+ 
+-        # (V,A) --> L
+-        h_l_with_as = self.trans_l_with_a(proj_x_l, proj_x_a, proj_x_a)    # Dimension (L, N, d_l)
+-        h_l_with_vs = self.trans_l_with_v(proj_x_l, proj_x_v, proj_x_v)    # Dimension (L, N, d_l)
+-        h_ls = torch.cat([h_l_with_as, h_l_with_vs], dim=2)
+-        h_ls = self.trans_l_mem(h_ls)
++        # Each stream's cross-modal output is computed right before its memory transformer,
++        # as in the original code: the order fixes how dropout consumes the RNG, so the
++        # crossmodal path reproduces the unmodified MulT bit for bit.
++        fused = self._primal_fuse(proj_x_l, proj_x_a, proj_x_v) if self.fusion == 'primal' else None
++
++        def cross(i):
++            if fused is not None:
++                return fused[i]
++            x = (proj_x_l, proj_x_a, proj_x_v)[i]
++            nets = ((self.trans_l_with_a, self.trans_l_with_v), (self.trans_a_with_l, self.trans_a_with_v),
++                    (self.trans_v_with_l, self.trans_v_with_a))[i]
++            srcs = ((proj_x_a, proj_x_v), (proj_x_l, proj_x_v), (proj_x_l, proj_x_a))[i]
++            if self.fusion == 'nocross':
++                return torch.cat([net(x) for net in nets], dim=2)
++            return torch.cat([net(x, s, s) for net, s in zip(nets, srcs)], dim=2)   # (L, N, 2d)
++
++        h_ls = self.trans_l_mem(cross(0))
+         if type(h_ls) == tuple:
+             h_ls = h_ls[0]
+         last_h_l = last_hs = h_ls[-1]   # Take the last output for prediction
+ 
+-        # (L,V) --> A
+-        h_a_with_ls = self.trans_a_with_l(proj_x_a, proj_x_l, proj_x_l)
+-        h_a_with_vs = self.trans_a_with_v(proj_x_a, proj_x_v, proj_x_v)
+-        h_as = torch.cat([h_a_with_ls, h_a_with_vs], dim=2)
+-        h_as = self.trans_a_mem(h_as)
++        h_as = self.trans_a_mem(cross(1))
+         if type(h_as) == tuple:
+             h_as = h_as[0]
+         last_h_a = last_hs = h_as[-1]
+         
+-        # (L,A) --> V
+-        h_v_with_ls = self.trans_v_with_l(proj_x_v, proj_x_l, proj_x_l)
+-        h_v_with_as = self.trans_v_with_a(proj_x_v, proj_x_a, proj_x_a)
+-        h_vs = torch.cat([h_v_with_ls, h_v_with_as], dim=2)
+-        h_vs = self.trans_v_mem(h_vs)
++        h_vs = self.trans_v_mem(cross(2))
+         if type(h_vs) == tuple:
+             h_vs = h_vs[0]
+         last_h_v = last_hs = h_vs[-1]
